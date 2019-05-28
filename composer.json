@@ -1,5 +1,5 @@
 {
-  "name": "xTemplate",
+  "name": "admin/xTemplate",
   "description": "后台模板组件",
   "license": "MIT",
   "authors": [
@@ -10,8 +10,8 @@
   ],
   "autoload": {
     "psr-4": {
-      "Component\\":"src/component",
-      "Interfaces\\":"src/interface"
+      "Component\\": "src/component",
+      "Interfaces\\": "src/interface"
     }
   },
   "require": {}
