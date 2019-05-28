@@ -98,8 +98,7 @@ class XTemplate implements Dom
 
     function loadConf()
     {
-        $conf = require "./src/conf/main.php";
-        $this->component_path = $conf['template_path'];
+        $this->component_path = dirname(__DIR__) . "/template/";
     }
 
     function decorate(Dom $dom)
