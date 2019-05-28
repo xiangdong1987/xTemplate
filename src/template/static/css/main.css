@@ -1,0 +1,13 @@
+.input_error {font-style: normal;
+    font-size: 11px;
+    line-height: 15px;
+    color: #D56161;
+    display: block;
+    margin-top: 6px;
+    background: #fff0f0;
+    border-color: #A90329;
+}
+.dt-wrapper{
+    overflow-x:auto;
+}
+

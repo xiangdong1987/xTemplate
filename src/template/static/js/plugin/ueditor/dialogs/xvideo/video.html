@@ -1,0 +1,61 @@
+<script type="text/javascript" src="../../third-party/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../internal.js"></script>
+<style>
+    .main {
+        margin: 10px 10px 0 10px;
+        color: red;
+    }
+</style>
+<div class="main">
+    <div>
+        <h1>操作步骤如下：</h1>
+        <ul>
+            <li>第一步：到相应的视频网站选择视频后，点击“分享”按钮，复制“嵌入代码”或“通用代码”，并粘贴到下方的“视频代码链接”框内；</li>
+            <li>第二步：文章发布前可通过“预览”功能，查看效果；</li>
+        </ul>
+    </div>
+    <input type="text" id="xVideoUrl" name="url" value="" placeholder="视频代码链接">
+    <input type="button" value="插入" id="button">
+</div>
+
+<script>
+    $('#button').click(function () {
+        var code = $('#xVideoUrl').val();
+        var html = handleUrl(code);
+        editor.execCommand('inserthtml', html);
+        $('#xVideoUrl').val("");
+        $('#edui92').hide();
+    });
+
+    function handleUrl(code) {
+        var srcReg = /src=[\'\"]?([^\'\"]*)[\'\"]?/i;
+        var arr = code.match(srcReg);
+        console.log(arr[1]);
+        if (arr[1]) {
+            var url = arr[1];
+            if (url[0] == "/") {
+                url = url.replace(/\/\//i, "https://");
+            } else {
+                url = url.replace(/http:\/\//i, "https://");
+            }
+            html = "<iframe class='ThirdPartyVideo' width='100%' height='270px' src='" + url + "' frameborder=0 'allowfullscreen'></iframe>";
+            return html;
+        } else {
+            alert("视频连接代码有误请检查");
+        }
+        return "";
+    }
+
+    function parseUrl(url) {
+        if (url.indexOf("youku")) {
+            let re = new RegExp('/v_show/(.*.html)');
+            var result = re.exec(url);
+            var id = '';
+            if (result[1]) {
+                id = result[1].slice(3, -5);
+            }
+            var html = "<iframe height=100% width=100% src='http://player.youku.com/embed/" + id + "' frameborder=0 'allowfullscreen'></iframe>";
+            return html;
+        }
+    }
+</script>

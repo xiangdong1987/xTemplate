@@ -1,0 +1,1 @@
+<script src='/static/js/<?php echo $path . $name ?>'></script>

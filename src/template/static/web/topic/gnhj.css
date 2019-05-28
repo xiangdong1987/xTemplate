@@ -1,0 +1,7 @@
+.gnhj{width:100%;padding:8px 0 8px 0; color:#333;margin-bottom:10px;overflow:hidden; background-color:#f4f4f4; top:0; background-size:100%; z-index:99999;background-image:-webkit-linear-gradient(90deg, #dadada, #dadada 50%, #f4f4f4 50%);background-size: 100% 1px; background-repeat: no-repeat; background-position: bottom;}
+.gnhj span{width:40px;height:40px; background:url(appicon.png) no-repeat; background-size:contain; float:left;margin-left:10px;}
+.gnhj font{color:#666;width:50%;float:left;padding-left:10px;font-size:13px;}
+.gnhj button{ float:right;margin-right:3%;height:35px; background:#229af9; border-radius:4px; text-decoration:none; text-align:center;line-height:32px;color:#fff;border:0;font-size:14px;width:18%;padding:0;margin-left:5%; }
+.gnhj .dhover{ background:#1c71b5; opacity:10;}
+.gnhj b{ font-weight:lighter;color:#f77703;font-size:10px;}
+.gnhj strong{font-weight:lighter;font-size:16px;color:#333; display:block;padding-top:2px;}

@@ -1,0 +1,18 @@
+{
+  "name": "template/component",
+  "description": "后台模板组件",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "xdd",
+      "email": "xiangdong198719@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Component\\":"src/component",
+      "Interfaces\\":"src/interface"
+    }
+  },
+  "require": {}
+}
