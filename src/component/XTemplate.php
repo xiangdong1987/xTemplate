@@ -39,7 +39,9 @@ class XTemplate implements Dom
      */
     function display($tpl_name)
     {
-        extract($this->tpl_var);
+        if($this->tpl_var){
+            extract($this->tpl_var);
+        }
         include $this->component_path . $tpl_name;
     }
 

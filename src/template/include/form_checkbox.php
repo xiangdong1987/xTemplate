@@ -6,8 +6,7 @@
 			<label class="checkbox">
 				<input type="checkbox" value="<?php echo $k ?>"<?php if (in_array($k, $val)) {
 					echo " checked";
-				} ?>
-					   name="<?php echo $name ?>"><i></i><?php echo htmlentities($v, ENT_QUOTES, "UTF-8") ?>
+				} ?> name="<?php echo $name ?>"><i></i><?php echo htmlentities($v, ENT_QUOTES, "UTF-8") ?>
 			</label>
 		<?php endforeach ?>
 	</div>

@@ -1,36 +1,41 @@
 <?php
-include "./vendor/autoload.php";
-$type = $_GET['type'];
-$menus = [
-    [
-        'icon' => "fa-group",
-        'name' => "主菜单",
-        'url' => "",
-        'sub_menus' => [
-            [
-                'icon' => "",
-                'name' => "表单",
-                'url' => "",
-                'controller' => "main",
-                'view' => "index",
-                'get' => ""
-            ],
-            [
-                'icon' => "",
-                'name' => "子菜单2",
-                'url' => "",
-                'controller' => "main",
-                'view' => "index2",
-                'get' => ""
+/**
+ * Created by PhpStorm.
+ * User: xiangdongdong
+ * Date: 2019/5/29
+ * Time: 17:01
+ */
+
+function form()
+{
+    $menus = [
+        [
+            'icon' => "fa-group",
+            'name' => "主菜单",
+            'url' => "",
+            'sub_menus' => [
+                [
+                    'icon' => "",
+                    'name' => "表单",
+                    'url' => "?controller=form",
+                    'controller' => "main",
+                    'view' => "index",
+                    'get' => ""
+                ],
+                [
+                    'icon' => "",
+                    'name' => "子菜单2",
+                    'url' => "",
+                    'controller' => "main",
+                    'view' => "index2",
+                    'get' => ""
+                ]
             ]
         ]
-    ]
-];
-if ($type == 1) {
+    ];
     decorateShow($menus);
-} else {
-    normalShow($menus);
 }
+
 function decorateShow($menus)
 {
     $mainHeader = new \Component\XMainHeader();
@@ -42,7 +47,7 @@ function decorateShow($menus)
     $fieldSet = new \Component\XFieldSet();
     $fieldSet->setDecorate(new \Component\XInput("", "输入框", "", "", "", "input", "输入框"));
     $fieldSet->setDecorate(new \Component\XSelect2("", "下拉框", true, "", "1", "status", "", [0 => "请选择", 1 => "选择1", 2 => "选择2"]));
-    $fieldSet->setDecorate(new \Component\XCheckBox("", "复选框", false, "", "1", "", [0 => "请选择", 1 => "选择1", 2 => "选择2"], ""));
+    $fieldSet->setDecorate(new \Component\XCheckBox("", "复选框", false, "", [1, 2], "", [0 => "请选择", 1 => "选择1", 2 => "选择2"], ""));
     $fieldSet->setDecorate(new \Component\XRadio("", "单选框", false, "", "1", "radio_test", [0 => "请选择", 1 => "选择1", 2 => "选择2"], ""));
     $form->setDecorate($fieldSet);
     $fieldSet1 = new \Component\XFieldSet();
@@ -62,7 +67,7 @@ function decorateShow($menus)
 
 function normalShow($menus)
 {
-    $path = __DIR__;
+    $path = dirname(__DIR__);
     $template = new \Component\Template($path . "/src/template/");
     echo $template->mainHeader();
     echo $template->topMenu("", "测试页面", "测试", "test", "http://www.baidu.com");
@@ -88,5 +93,3 @@ function normalShow($menus)
     echo $template->mainEnd();
     echo $template->mainFooter();
 }
-
-

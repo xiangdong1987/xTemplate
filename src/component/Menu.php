@@ -1,4 +1,5 @@
 <?php
+
 namespace Component;
 
 class Menu
@@ -90,14 +91,16 @@ class Menu
         $r = "<nav><ul>";
         foreach ($this->menu as $k => $menu) {
             $r .= '<li' . ($menu[self::F_active] ? '  class="active"' : '') . '><a href="' . $menu[self::F_url] . '"'
-                . ($menu[self::F_alert] ? ' confirm="' . htmlentities($menu[self::F_alert], ENT_QUOTES, 'UTF-8') . '"' : "")
+                . (isset($menu[self::F_alert]) && $menu[self::F_alert] ? ' confirm="' . htmlentities($menu[self::F_alert], ENT_QUOTES, 'UTF-8') . '"' : "")
                 #. ($menu[self::F_url] ? " onclick=\"window.location.href='" . $menu[self::F_url] . "'\"" : "")
                 . ' title="' . $menu[self::F_name] . '">' . ($menu[self::F_icon] ? '<i class=" fa fa-lg fa-fw ' . $menu[self::F_icon] . '"></i>' : '')
                 . '<span class="menu-item-parent">' . $menu[self::F_name] . '</span></a>';
             if (isset($menu[self::F_sub]) && $menu[self::F_sub]) {
                 $r .= '<ul>';
-                foreach ($menu[self::F_sub] as $subk => $sub) {
-                    $r .= '<li' . ($sub[self::F_active] ? '  class="active"' : '') . '><a href="' . $sub[self::F_url] . '"' . ($sub[self::F_alert] ? ' confirm="' . htmlentities($sub[self::F_alert], ENT_QUOTES, 'UTF-8') . '"' : "") . ' title="' . $sub[self::F_name] . '">' . ($sub[self::F_icon] ? '<i class="fa-lg fa-fw ' . $sub[self::F_icon] . '"></i>' : '') . '<span class="menu-item-parent">' . $sub[self::F_name] . '</span></a></li>';
+                if ($menu[self::F_sub]) {
+                    foreach ($menu[self::F_sub] as $subk => $sub) {
+                        $r .= '<li' . ($sub[self::F_active] ? '  class="active"' : '') . '><a href="' . $sub[self::F_url] . '"' . (isset($menu[self::F_alert]) && $menu[self::F_alert] ? ' confirm="' . htmlentities($sub[self::F_alert], ENT_QUOTES, 'UTF-8') . '"' : "") . ' title="' . $sub[self::F_name] . '">' . ($sub[self::F_icon] ? '<i class="fa-lg fa-fw ' . $sub[self::F_icon] . '"></i>' : '') . '<span class="menu-item-parent">' . $sub[self::F_name] . '</span></a></li>';
+                    }
                 }
                 $r .= '</ul>';
             }
