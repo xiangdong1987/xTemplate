@@ -53,8 +53,8 @@ class XTextArea extends XTemplate
         return $dom;
     }
 
-    function show()
+    function show(Dom $root)
     {
-        parent::show();
+        parent::show($root);
     }
 }

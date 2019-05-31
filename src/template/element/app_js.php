@@ -1,7 +1,7 @@
 <script>
     new Vue({
         el: '#app',
-        data: function() {
+        data(){
             return <?php echo $data;?>
         }
     })
