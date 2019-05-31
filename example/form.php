@@ -62,7 +62,7 @@ function decorateShow($menus)
     $mainContent->setDecorate($form);
     $mainHeader->setDecorate($mainContent);
     $mainHeader->setDecorate(new \Component\XMainFooter());
-    $mainHeader->show();
+    $mainHeader->show($mainHeader);
 }
 
 function normalShow($menus)

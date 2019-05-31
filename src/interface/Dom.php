@@ -9,5 +9,5 @@ namespace Interfaces;
 interface Dom
 {
     function decorate(Dom $dom);
-    function show();
+    function show(Dom $root);
 }

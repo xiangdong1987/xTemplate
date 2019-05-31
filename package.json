@@ -1,0 +1,9 @@
+{
+  "name"          : "x-template",
+  "version"       : "0.0.1",
+  "description"   : "Minimalist multiroom chat server",
+  "dependencies"  : {
+    "vue" : "~2.5.16",
+    "element-ui" : "~2.8.2"
+  }
+}

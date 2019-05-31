@@ -21,6 +21,8 @@ class XTemplate implements Dom
     public $decorates;
     public $decorate;
     public $root = false;
+    public $isElement = false;
+    public $data;
 
     function __construct()
     {
@@ -39,7 +41,7 @@ class XTemplate implements Dom
      */
     function display($tpl_name)
     {
-        if($this->tpl_var){
+        if ($this->tpl_var) {
             extract($this->tpl_var);
         }
         include $this->component_path . $tpl_name;
@@ -63,6 +65,9 @@ class XTemplate implements Dom
 
     function setDecorate($decorate)
     {
+        if ($this->isElement) {
+            $decorate->isElement = true;
+        }
         $this->decorates[] = $decorate;
     }
 
@@ -117,19 +122,38 @@ class XTemplate implements Dom
 
     }
 
-    function show()
+    function getModel()
+    {
+
+    }
+
+    function show(Dom $root)
     {
         $linkHead = "";
-        if ($this->decorates&&count($this->decorates)) {
+        if ($this->decorates && count($this->decorates)) {
             $linkHead = $this->decorateAll();
         }
         $this->contentS();
         if ($linkHead) {
-            $linkHead->show();
+            if ($data = $linkHead->getModel()) {
+                if ($root->data) {
+                    $root->data = array($root->data, $data);
+                } else {
+                    $root->data = $data;
+                }
+            }
+            $linkHead->show($root);
         }
         $this->contentE();
         if ($this->decorate) {
-            $this->decorate->show();
+            if ($data = $this->decorate->getModel()) {
+                if ($root->data) {
+                    $root->data = array($root->data, $data);
+                } else {
+                    $root->data = $data;
+                }
+            }
+            $this->decorate->show($root);
         }
     }
 }

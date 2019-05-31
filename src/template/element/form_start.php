@@ -1,0 +1,1 @@
+<el-form ref="form" :model="<?php echo $form_name;?>" label-width="80px">
