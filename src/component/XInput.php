@@ -22,8 +22,18 @@ class XInput extends XTemplate
      */
     public $decorate;
 
-    function __construct($col, $title, $need, $icon, $val, $name, $note, $ifReadOnly = 0)
-    {
+    function __construct(
+        $col,
+        $title,
+        $need,
+        $icon,
+        $val,
+        $name,
+        $note,
+        $ifReadOnly = 0,
+        $ifPassword = false,
+        $ifClear = false
+    ) {
         parent::__construct();
         $this->params = [
             'col' => $col,
@@ -34,12 +44,14 @@ class XInput extends XTemplate
             'name' => $name,
             'note' => $note,
             'ifReadOnly' => $ifReadOnly,
+            'ifPassword' => $ifPassword,
+            'ifClear' => $ifClear,
         ];
     }
 
     function getModel()
     {
-        $data= [$this->params['name'] => $this->params['val']];
+        $data = [$this->params['name'] => $this->params['val']];
         return $data;
     }
 

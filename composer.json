@@ -14,5 +14,11 @@
       "Interfaces\\": "src/interface"
     }
   },
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://packagist.phpcomposer.com"
+    }
+  },
   "require": {}
 }
