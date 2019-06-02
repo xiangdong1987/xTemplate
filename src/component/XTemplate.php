@@ -137,7 +137,7 @@ class XTemplate implements Dom
         if ($linkHead) {
             if ($data = $linkHead->getModel()) {
                 if ($root->data) {
-                    $root->data = array_merge($root->data, $data);
+                    $root->data = array_merge_recursive($root->data, $data);
                 } else {
                     $root->data = $data;
                 }
@@ -148,7 +148,7 @@ class XTemplate implements Dom
         if ($this->decorate) {
             if ($data = $this->decorate->getModel()) {
                 if ($root->data) {
-                    $root->data = array_merge($root->data, $data);
+                    $root->data = array_merge_recursive($root->data, $data);
                 } else {
                     $root->data = $data;
                 }

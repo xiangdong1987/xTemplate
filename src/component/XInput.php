@@ -51,7 +51,13 @@ class XInput extends XTemplate
 
     function getModel()
     {
-        $data = [$this->params['name'] => $this->params['val']];
+        //判断是否是表单内
+        if (strpos($this->params['name'], ".")) {
+            $list = explode('.', $this->params['name']);
+            $data[$list[0]][$list[1]] = $this->params['val'];
+        } else {
+            $data[$this->params['name']] = $this->params['val'];
+        }
         return $data;
     }
 
