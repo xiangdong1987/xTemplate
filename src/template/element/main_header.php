@@ -20,7 +20,7 @@
 </head>
 <body>
 <div id="app">
-    <el-container style="height: 100%; border: 1px solid #eee;border-radius: 4px;z-index:9999">
+    <el-container style="height:-webkit-fill-available; border: 1px solid #eee;border-radius: 4px;z-index:9999">
         <el-header style="text-align: right; font-size: 12px;background-color: #545c64;color: #FFFFFF;">
             <span style="float: left;width: 160px;text-align: center;font-size: 18px;">xTemplate</span>
             <el-dropdown>

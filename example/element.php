@@ -1,9 +1,25 @@
 <?php
 include "./../vendor/autoload.php";
-$menus = [];
+$menus = [
+    [
+        'icon' => "el-icon-edit",
+        'name' => "表单",
+        'url' => "",
+        'sub_menus' => [
+            [
+                'icon' => "",
+                'name' => "INPUT",
+                'url' => "http://local.admin.com/element.php?controller=form",
+                'controller' => "form",
+                'view' => "input",
+                'get' => ""
+            ],
+        ]
+    ]
+];
 $root = new \Component\ElementTemplate();
 $root->setDecorate(new \Component\XMainHeader());
-$root->setDecorate(new \Component\XLeftMenu("main", "index", $menus));
+$root->setDecorate(new \Component\XLeftMenu("form", "input", $menus));
 $main = new \Component\XMainContent("表单");
 $rules["test1"] = [
     ["required" => true, "message" => '该字段是必填字段', "trigger" => 'blur'],
