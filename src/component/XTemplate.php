@@ -23,6 +23,8 @@ class XTemplate implements Dom
     public $root = false;
     public $isElement = false;
     public $data;
+    public $rules;
+    public $methods;
 
     function __construct()
     {
@@ -127,6 +129,16 @@ class XTemplate implements Dom
 
     }
 
+    function getRules()
+    {
+
+    }
+
+    function getMethods()
+    {
+
+    }
+
     function show(Dom $root)
     {
         $linkHead = "";
@@ -135,25 +147,66 @@ class XTemplate implements Dom
         }
         $this->contentS();
         if ($linkHead) {
-            if ($data = $linkHead->getModel()) {
-                if ($root->data) {
-                    $root->data = array_merge_recursive($root->data, $data);
-                } else {
-                    $root->data = $data;
-                }
-            }
+            $this->integrateData($root, $linkHead);
+            $this->integrateRules($root, $linkHead);
+            $this->integrateMethods($root, $linkHead);
             $linkHead->show($root);
         }
         $this->contentE();
         if ($this->decorate) {
-            if ($data = $this->decorate->getModel()) {
-                if ($root->data) {
-                    $root->data = array_merge_recursive($root->data, $data);
-                } else {
-                    $root->data = $data;
-                }
-            }
+            $this->integrateData($root, $this->decorate);
+            $this->integrateRules($root, $this->decorate);
+            $this->integrateMethods($root, $this->decorate);
             $this->decorate->show($root);
+        }
+    }
+
+    /**
+     * 整合data 数据
+     * @param $root
+     * @param $sub_node
+     */
+    function integrateData($root, $sub_node)
+    {
+        if ($data = $sub_node->getModel()) {
+            if ($root->data) {
+                $root->data = array_merge_recursive($root->data, $data);
+            } else {
+                $root->data = $data;
+            }
+        }
+    }
+
+    /**
+     * 整个验证资源
+     * @param $root
+     * @param $sub_node
+     */
+    function integrateRules($root, $sub_node)
+    {
+        if ($rules = $sub_node->getRules()) {
+            if ($root->rules) {
+                $root->rules = array_merge_recursive($root->rules, $rules);
+            } else {
+                $root->rules = $rules;
+            }
+        }
+    }
+
+    /**
+     * 整合方法
+     *
+     * @param $root
+     * @param $sub_node
+     */
+    function integrateMethods($root, $sub_node)
+    {
+        if ($methods = $sub_node->getMethods()) {
+            if ($root->methods) {
+                $root->methods = array_merge_recursive($root->methods, $methods);
+            } else {
+                $root->methods = $methods;
+            }
         }
     }
 }

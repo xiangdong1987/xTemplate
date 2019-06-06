@@ -1,7 +1,7 @@
 <?php if ($title) { ?>
-    <el-form-item label="<?php echo $title ?>">
+    <el-form-item label="<?php echo $title ?>" prop="<?php echo $name ?>">
 <?php } ?>
-    <el-input v-model="<?php echo $name ?>"
+    <el-input v-model="<?php echo isset($form_name) ? $form_name : $name; ?>"
               placeholder="<?php echo $note ?>"
         <?php echo $ifReadOnly ? ':disabled="true"' : "" ?>
         <?php echo $ifPassword ? 'show-password' : "" ?>

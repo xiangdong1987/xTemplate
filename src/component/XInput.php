@@ -33,7 +33,8 @@ class XInput extends XTemplate
         $ifReadOnly = 0,
         $ifPassword = false,
         $ifClear = false
-    ) {
+    )
+    {
         parent::__construct();
         $this->params = [
             'col' => $col,
@@ -52,13 +53,18 @@ class XInput extends XTemplate
     function getModel()
     {
         //判断是否是表单内
-        if (strpos($this->params['name'], ".")) {
-            $list = explode('.', $this->params['name']);
+        if (isset($this->params['form_name'])) {
+            $list = explode('.', $this->params['form_name']);
             $data[$list[0]][$list[1]] = $this->params['val'];
         } else {
             $data[$this->params['name']] = $this->params['val'];
         }
         return $data;
+    }
+
+    function getRules()
+    {
+        return $this->rules;
     }
 
     function contentS()

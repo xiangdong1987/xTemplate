@@ -5,7 +5,11 @@ $root = new \Component\ElementTemplate();
 $root->setDecorate(new \Component\XMainHeader());
 $root->setDecorate(new \Component\XLeftMenu("main", "index", $menus));
 $main = new \Component\XMainContent("表单");
-$form = new \Component\XForm("表单", 'form1', "", "");
+$rules["test1"] = [
+    ["required" => true, "message" => '该字段是必填字段', "trigger" => 'blur'],
+    ["min" => 3, "max" => 5, "message" => '长度在 3 到 5 个字符', "trigger" => 'blur'],
+];
+$form = new \Component\XForm("表单", 'form1', "", "", $rules);
 $root->setDecorate($main);
 $main->setDecorate($form);
 $form->setDecorate(new \Component\XInput("", "空input", "", "", "", "test1", "请输入内容"));

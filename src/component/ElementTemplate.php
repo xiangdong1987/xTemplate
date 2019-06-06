@@ -51,7 +51,10 @@ class ElementTemplate extends XTemplate
     {
         parent::show($root);
         //初始化app
-        echo $this->fetch('element/app_js.php', ["data" => json_encode($this->data)]);
+        echo $this->fetch('element/app_js.php', [
+            "data" => json_encode(array_merge($this->data, ["rules" => $this->rules])),
+            "methods" => $this->methods
+        ]);
 
     }
 
