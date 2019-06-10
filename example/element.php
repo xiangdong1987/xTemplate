@@ -9,17 +9,26 @@ $menus = [
             [
                 'icon' => "",
                 'name' => "INPUT",
-                'url' => "http://local.admin.com/element.php?controller=form",
-                'controller' => "form",
+                'url' => "http://local.admin.com/element.php?controller=input",
+                'controller' => "input",
                 'view' => "input",
+                'get' => ""
+            ],
+            [
+                'icon' => "",
+                'name' => "SELECT",
+                'url' => "http://local.admin.com/element.php?controller=select",
+                'controller' => "select",
+                'view' => "select",
                 'get' => ""
             ],
         ]
     ]
 ];
+$controller = $_GET['controller'];
 $root = new \Component\ElementTemplate();
 $root->setDecorate(new \Component\XMainHeader());
-$root->setDecorate(new \Component\XLeftMenu("form", "input", $menus));
+$root->setDecorate(new \Component\XLeftMenu($controller, $controller, $menus));
 $main = new \Component\XMainContent("表单");
 $rules["test1"] = [
     ["required" => true, "message" => '该字段是必填字段', "trigger" => 'blur'],
@@ -28,11 +37,8 @@ $rules["test1"] = [
 $form = new \Component\XForm("表单", 'form1', "", "", $rules);
 $root->setDecorate($main);
 $main->setDecorate($form);
-$form->setDecorate(new \Component\XInput("", "空input", "", "", "", "test1", "请输入内容"));
-$form->setDecorate(new \Component\XInput("", "有值input", "", "", "test2", "test2", ""));
-$form->setDecorate(new \Component\XInput("", "只读", "", "", "test2", "test3", "", true));
-$form->setDecorate(new \Component\XInput("", "密码", "", "", "test2", "test4", "", false, true));
-$form->setDecorate(new \Component\XInput("", "可清除", "", "", "test2", "test5", "", false, false, true));
-$form->setDecorate(new \Component\XInput("", "有Icon", "", "el-icon-search", "test2", "test6", ""));
+//引入测试文件
+include_once "$controller.php";
+call_user_func($controller, $form);
 $root->setDecorate(new \Component\XMainFooter());
 $root->show($root);
