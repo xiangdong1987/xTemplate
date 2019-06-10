@@ -23,6 +23,10 @@ composer require xdd/x-template
            root /usr/local/var/www/xTemplate/;
     }
 ```
+## Done List
+* Input 80%
+* Select 80%
+* Menu 70%
 ## Todo
 * 功能完善
 * bug修复
