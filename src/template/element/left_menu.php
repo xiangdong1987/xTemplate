@@ -1,6 +1,6 @@
-<el-aside width="200px" style="background-color: #545c64;">
+
     <el-menu default-active="<?php echo $controller ?>-<?php echo $view ?>" class="el-menu-vertical-demo"
-             background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+             background-color="#545c64" text-color="#fff" active-text-color="#ffd04b"  @open="handleOpen" @close="handleClose" :collapse="isCollapse">
         <?php if ($menuList) { ?>
             <?php foreach ($menuList as $menu) { ?>
                 <el-submenu index="form">
@@ -18,5 +18,5 @@
 
         <?php } ?>
     </el-menu>
-</el-aside>
+
 <el-container>

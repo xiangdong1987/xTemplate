@@ -1,0 +1,10 @@
+.el-breadcrumb__item {
+    float: left;
+    margin-top: 20px
+}
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 400px;
+    background-color: #545c64;
+}
+
