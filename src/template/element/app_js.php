@@ -11,6 +11,9 @@
             },
             handleClose(key, keyPath) {
                 console.log(key, keyPath);
+            },
+            toggleSideBar(){
+                this.isCollapse=!this.isCollapse;
             }
         }
     })
