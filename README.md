@@ -27,6 +27,8 @@ composer require xdd/x-template
 * Input 80%
 * Select 80%
 * Menu 70%
+* Radio 80%
+* form 80%
 ## Todo
 * 功能完善
 * bug修复
