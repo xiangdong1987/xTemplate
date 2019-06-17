@@ -33,4 +33,4 @@ composer require xdd/x-template
 * 功能完善
 * bug修复
 ## 预览
-[图片预览](https://github.com/xiangdong1987/xTemplate/raw/master/img/xTemplate1.png)
+![图片预览](https://github.com/xiangdong1987/xTemplate/raw/master/img/xTemplate1.png)
