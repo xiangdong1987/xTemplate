@@ -25,7 +25,6 @@ class XLeftMenu extends XTemplate
     function __construct($controller, $view, $menuList)
     {
         parent::__construct();
-
         $this->params = [
             "controller" => $controller,
             "view" => $view,
@@ -35,7 +34,7 @@ class XLeftMenu extends XTemplate
 
     function getModel()
     {
-        $data['isCollapse'] = true;
+        $data['isCollapse'] = false;
         return $data;
     }
 
