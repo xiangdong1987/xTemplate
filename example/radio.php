@@ -19,9 +19,9 @@ function radio($form)
     $form->setDecorate(new \Component\XDivider("CheckBox", 2));
     $form->setDecorate(new \Component\XCheckBox("普通", [1, 3], "c1", ["1" => "备选项1", "2" => "备选项2", "3" => "备选项3"], 1));
     $form->setDecorate(new \Component\XCheckBox("禁用", [1, 3], "c2", ["1" => "备选项1", "2" => "备选项2", "3" => "备选项3"], 1, 1, false, true));
-    $form->setDecorate(new \Component\XCheckBox("样式2", [1, 3], "c2", ["1" => "备选项1", "2" => "备选项2", "3" => "备选项3"], 2, 1, true));
-    $form->setDecorate(new \Component\XCheckBox("样式3", [1, 3], "c2", ["1" => "备选项1", "2" => "备选项2", "3" => "备选项3"], 1, 1));
-    $form->setDecorate(new \Component\XCheckBox("小号", [1, 3], "c2", ["1" => "备选项1", "2" => "备选项2", "3" => "备选项3"], 1, 2, true));
-    $form->setDecorate(new \Component\XCheckBox("迷你", [1, 3], "c2", ["1" => "备选项1", "2" => "备选项2", "3" => "备选项3"], 1, 3, true));
+    $form->setDecorate(new \Component\XCheckBox("样式2", [1, 3], "c3", ["1" => "备选项1", "2" => "备选项2", "3" => "备选项3"], 2, 1, true));
+    $form->setDecorate(new \Component\XCheckBox("样式3", [1, 3], "c4", ["1" => "备选项1", "2" => "备选项2", "3" => "备选项3"], 1, 1));
+    $form->setDecorate(new \Component\XCheckBox("小号", [1, 3], "c5", ["1" => "备选项1", "2" => "备选项2", "3" => "备选项3"], 1, 2, true));
+    $form->setDecorate(new \Component\XCheckBox("迷你", [1, 3], "c6", ["1" => "备选项1", "2" => "备选项2", "3" => "备选项3"], 1, 3, true));
 
 }
