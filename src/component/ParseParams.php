@@ -26,6 +26,7 @@ class ParseParams
         if (isset($params['ifClear'])) {
             $result['ifClear'] = $params['ifClear'];
         }
+        //多级菜单展开方式
         if (isset($params['expandTrigger'])) {
             switch ($params['expandTrigger']) {
                 case "hover":
@@ -35,8 +36,13 @@ class ParseParams
             }
             $result['expandTrigger'] = $params['expandTrigger'];
         }
-        if (isset($params['ifReadOnly'])) {
-            $result['ifReadOnly'] = $params['ifReadOnly'];
+        //时间选择器 箭头控制
+        if (isset($params['arrow_control'])) {
+            $result['arrow_control'] = $params['arrow_control'];
+        }
+        //时间选择器 范围选择
+        if (isset($params['is_range'])) {
+            $result['is_range'] = $params['is_range'];
         }
         return $result;
     }

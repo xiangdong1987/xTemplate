@@ -115,4 +115,7 @@ function select($form)
     //多级菜单
     $form->setDecorate(new \Component\XCascader("多级菜单", ['zhinan', 'shejiyuanze', 'yizhi'], 'c1', "", json_decode($jsonMenu, 1)));
     //$form->setDecorate(new \Component\XCascader("多级Hover", [''], 'c2', "", json_decode($jsonMenu, 1), ['expandTrigger' => 'hover']));
+    $form->setDecorate(new \Component\XTimeSelect("时间选择", "st1", "", "08:00", "00:15", "18:00", "时间选择"));
+    $form->setDecorate(new \Component\XTimeSelect("开始时间", "st2", "", "08:00", "00:15", "10:00", "开始时间"));
+    $form->setDecorate(new \Component\XTimeSelect("结束时间", "st3", "", "08:00", "00:15", "10:00", "结束时间", "form1.st2"));
 }

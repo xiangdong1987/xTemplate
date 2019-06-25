@@ -31,6 +31,10 @@ composer require xdd/x-template
 * Checkbox 80%
 * Form 80%
 * Divider 100%
+* Cascader 20%
+* Time Select 50%
+* Time Picker 50%
+* 增加配置解析
 ## Todo
 * 功能完善
 * bug修复

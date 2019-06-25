@@ -30,6 +30,14 @@ $menus = [
                 'view' => "radio",
                 'get' => ""
             ],
+            [
+                'icon' => "",
+                'name' => "TIMEPICKER",
+                'url' => "http://local.admin.com/element.php?controller=timepicker",
+                'controller' => "timepicker",
+                'view' => "timepicker",
+                'get' => ""
+            ],
         ]
     ]
 ];
