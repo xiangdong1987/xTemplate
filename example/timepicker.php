@@ -19,4 +19,23 @@ function timepicker($form)
         'is_range' => true,
         'arrow_control' => true,
     ]));
+    $form->setDecorate(new \Component\XDatePicker("日期选择", "d1", date("Y-m-d"), "", "", "date", "日期选择"));
+    $form->setDecorate(new \Component\XDatePicker("选择周", "d2", date("Y-m-d"), "", "", "week", "选择周", [
+        'format' => "yyyy 第 WW 周"
+    ]));
+    $form->setDecorate(new \Component\XDatePicker("选择月", "d3", date("Y-m-d"), "", "", "month", "选择月"));
+    $form->setDecorate(new \Component\XDatePicker("选择年", "d4", date("Y-m-d"), "", "", "year", "选择年"));
+    $form->setDecorate(new \Component\XDatePicker("范围月", "d5", [date("Y-m-d", strtotime("2019-08")), date("Y-m-d", strtotime("2019-09"))], "", "", "monthrange", "范围月", [
+        'range_separator' => "至",
+        'start_placeholder' => "开始月份",
+        'end_placeholder' => "结束月份",
+    ]));
+    $form->setDecorate(new \Component\XDatePicker("日期时间", "d6", "", "", "", "datetime", "日期时间",[
+        'default_time'=>"12:00:00"
+    ]));
+    $form->setDecorate(new \Component\XDatePicker("日期时间", "d7", "", "", "", "datetimerange", "日期时间",[
+        'range_separator' => "至",
+        'start_placeholder' => "开始月份",
+        'end_placeholder' => "结束月份",
+    ]));
 }

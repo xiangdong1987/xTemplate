@@ -44,6 +44,30 @@ class ParseParams
         if (isset($params['is_range'])) {
             $result['is_range'] = $params['is_range'];
         }
+        //日期选择格式
+        if (isset($params['format'])) {
+            $result['format'] = $params['format'];
+        }
+        //范围选择
+        if (isset($params['range_separator'])) {
+            $result['range_separator'] = $params['range_separator'];
+        }
+        //范围选择
+        if (isset($params['start_placeholder'])) {
+            $result['start_placeholder'] = $params['start_placeholder'];
+        }
+        //范围选择
+        if (isset($params['end_placeholder'])) {
+            $result['end_placeholder'] = $params['end_placeholder'];
+        }
+        //日期选择格式
+        if (isset($params['value_format'])) {
+            $result['value_format'] = $params['value_format'];
+        }
+        //日期选择格式
+        if (isset($params['default_time'])) {
+            $result['default_time'] = $params['default_time'];
+        }
         return $result;
     }
 }

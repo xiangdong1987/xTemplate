@@ -34,6 +34,7 @@ composer require xdd/x-template
 * Cascader 20%
 * Time Select 50%
 * Time Picker 50%
+* Date Picker 70%
 * 增加配置解析
 ## Todo
 * 功能完善
