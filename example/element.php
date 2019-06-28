@@ -38,6 +38,14 @@ $menus = [
                 'view' => "timepicker",
                 'get' => ""
             ],
+            [
+                'icon' => "",
+                'name' => "UPLOAD",
+                'url' => "http://local.admin.com/element.php?controller=upload",
+                'controller' => "upload",
+                'view' => "upload",
+                'get' => ""
+            ],
         ]
     ]
 ];
@@ -45,7 +53,7 @@ $controller = $_GET['controller'];
 $root = new \Component\ElementTemplate();
 $root->setDecorate(new \Component\XMainHeader());
 $root->setDecorate(new \Component\XLeftMenu($controller, $controller, $menus));
-$main = new \Component\XMainContent("表单","http://local.admin.com/element.php?controller=input",$controller);
+$main = new \Component\XMainContent("表单", "http://local.admin.com/element.php?controller=input", $controller);
 $rules["test1"] = [
     ["required" => true, "message" => '该字段是必填字段', "trigger" => 'blur'],
     ["min" => 3, "max" => 5, "message" => '长度在 3 到 5 个字符', "trigger" => 'blur'],
@@ -55,6 +63,10 @@ $root->setDecorate($main);
 $main->setDecorate($form);
 //引入测试文件
 include_once "$controller.php";
+$action = $_GET['action'];
+if ($action) {
+    $controller = $action;
+}
 call_user_func($controller, $form);
 $root->setDecorate(new \Component\XMainFooter());
 $root->show($root);
